@@ -20,7 +20,8 @@ jobs:
             yarn-v1-${{ runner.os }}-
       - run: yarn install
       - run: yarn build
+      - run: npm i -g testcafe@1.15.3 http-server
       - name: testcafe
-        run: npx testcafe ie e2e/test.js -a "npx http-server dist -p $PORT"
+        run: testcafe ie e2e/test.js -a "http-server dist -p 3000"
         env:
           PORT: 3000

@@ -1,0 +1,23 @@
+name: test
+
+on:
+  push
+jobs:
+  testcafe:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14.17.5
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/yarn
+          key: yarn-v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn-v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+            yarn-v1-${{ runner.os }}-
+      - run: yarn install
+      - run: yarn build
+      - run: PORT=3000 npx testcafe ie e2e/test.js -a "npx http-server dist -p 3000"

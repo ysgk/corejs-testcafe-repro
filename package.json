@@ -1,13 +1,15 @@
 {
   "name": "corejs-testcafe-reproduction",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "dev": "parcel src/index.html",
+    "build:parcel": "parcel build --no-optimize src/index.html",
+    "build:webpack": "webpack -c webpack.config.js"
   },
   "devDependencies": {
     "html-webpack-plugin": "^5.3.2",
+    "parcel": "^2.0.0-rc.0",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0"
   },

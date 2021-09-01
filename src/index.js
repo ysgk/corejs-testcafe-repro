@@ -1,4 +1,4 @@
-import 'core-js/es/regexp/test'
+import 'core-js/features/regexp'
 
 const div = document.createElement('div')
 const text = document.createTextNode('Hello')

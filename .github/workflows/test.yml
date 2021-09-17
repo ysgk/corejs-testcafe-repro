@@ -20,7 +20,7 @@ jobs:
             yarn-v1-${{ runner.os }}-
       - run: yarn install
       - run: yarn build
-      - run: npm i -g testcafe@1.15.3 http-server
+      - run: npm i -g testcafe@1.16.0 http-server
       - name: testcafe
         # Testcafe hangs!
         run: testcafe ie e2e/test.js -a "http-server dist -p 3000"

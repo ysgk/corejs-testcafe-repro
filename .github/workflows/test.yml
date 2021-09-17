@@ -19,7 +19,7 @@ jobs:
             yarn-v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
             yarn-v1-${{ runner.os }}-
       - run: yarn install
-      - run: yarn build
+      - run: yarn build:webpack
       - run: npm i -g testcafe@1.16.0 http-server
       - name: testcafe
         # Testcafe hangs!
